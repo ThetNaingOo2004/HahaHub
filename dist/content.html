@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    <style>
+        .mark::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: black;
+            transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .mark:hover::after{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="bg-blue-100 py-2 px-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold"><span class="text-red-500">P</span>roject</h1>
+            <ul class="flex gap-5 font-bold">
+                <li class="mark relative"><a href="index.html">Home</a></li>
+                <li class="mark relative"><a href="profile.html">Profile</a></li>
+                <li class="mark relative"><a href="about.html">About</a></li>
+                <li class="text-red-500 border-b-2 border-black"><a href="profile.html"><a href="content.html">Content</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="min-h-screen"></main>
+    <footer class="bg-gray-300 py-1">
+        <p class="font-bold text-sm flex items-center justify-center"><span class="text-lg">&copy</span>opyright 2023 HahaHub</p>
+    </footer>
+</body>
+</html>
