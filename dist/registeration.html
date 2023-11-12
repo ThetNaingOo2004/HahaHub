@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      .mark::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background-color: black;
+        transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .mark:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="bg-blue-100 py-2 px-4 flex justify-around items-center">
+        <h1 class="text-3xl font-bold">
+          <span class="text-red-500">P</span>roject
+        </h1>
+        <ul class="flex gap-5 font-bold">
+          <li class="text-red-500 border-b-2 border-black">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="mark relative"><a href="profile.html">Profile</a></li>
+          <li class="mark relative"><a href="about.html">About</a></li>
+          <li class="mark relative"><a href="content.html">Content</a></li>
+        </ul>
+        <button class="bg-orange-600 px-4 py-2 active:scale-95 rounded-3xl">
+          <a href="register.html">Register</a>
+        </button>
+      </nav>
+    </header>
+    <main class="min-h-screen flex items-center justify-center">
+      <form class="border border-black p-10 rounded my-10">
+        <h1 class="text-center font-bold text-2xl mb-10">User Registration</h1>
+        <div class="flex flex-col gap-2 md:flex-row md:gap-10">
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col items-start gap-3">
+              <label for="name" class="font-bold">Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                class="bg-white px-4 py-1 rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-[243px] outline-none"
+              />
+            </div>
+            <div class="flex flex-col items-start gap-3">
+              <label for="email" class="font-bold">Email</label>
+              <input
+                type="text"
+                id="email"
+                placeholder="Enter your email"
+                class="bg-white px-4 py-1 rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-[243px] outline-none"
+              />
+            </div>
+            <div class="flex flex-col items-start gap-3">
+              <label for="password" class="font-bold">Password</label>
+              <div
+                class="bg-white px-4 py-1 rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] outline-none w-[243px]"
+              >
+                <input
+                  type="password"
+                  id="password"
+                  class="outline-none"
+                  placeholder="Enter your Password"
+                />
+                <i
+                  class="fa-solid fa-eye select-none cursor-pointer"
+                  id="eye"
+                ></i>
+              </div>
+              <ul class="list-disc list-inside">
+                <li>lorem lorem</li>
+                <li>lorem lorem</li>
+                <li>lorem lorem</li>
+                <li>lorem lorem</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col items-start gap-3">
+              <label for="photo" class="font-bold">Photo</label>
+              <label
+                for="photo"
+                class="bg-white rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] outline-none w-[243px] text-gray-400"
+                ><i
+                  class="fa-solid fa-plus text-black bg-gray-400 p-2 mr-3 active:scale-95"
+                ></i
+                >Upload Photo</label
+              >
+              <input
+                type="file"
+                placeholder="Enter "
+                id="photo"
+                class="hidden"
+              />
+            </div>
+            <div class="flex flex-col items-start gap-3">
+              <label for="resume" class="font-bold">Resume</label>
+              <label
+                for="resume"
+                class="bg-white rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] outline-none w-[243px] text-gray-400"
+                ><i
+                  class="fa-solid fa-plus text-black bg-gray-400 p-2 mr-3 active:scale-95"
+                ></i
+                >Upload File</label
+              >
+              <input
+                type="file"
+                placeholder="Enter "
+                id="resume"
+                class="hidden"
+              />
+            </div>
+            <div class="flex flex-col items-start gap-3">
+              <label for="description" class="font-bold"
+                >Personal Description</label
+              >
+              <textarea
+                name=""
+                class="bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] outline-none w-[243px] p-3"
+                id="description"
+                rows="6"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+    <footer class="bg-gray-300 py-1">
+      <p class="font-bold text-sm flex items-center justify-center">
+        <span class="text-lg">&copy</span>opyright 2023 HahaHubb
+      </p>
+    </footer>
+
+    <script>
+      const psw = document.getElementById("password");
+      const eye = document.getElementById("eye");
+
+      eye.addEventListener("click", () => {
+        if (eye.classList.contains("fa-eye")) {
+          psw.type = "text";
+          eye.classList.remove("fa-eye");
+          eye.classList.add("fa-eye-slash");
+        } else {
+          psw.type = "password";
+          eye.classList.add("fa-eye");
+          eye.classList.remove("fa-eye-slash");
+        }
+      });
+    </script>
+  </body>
+</html>
