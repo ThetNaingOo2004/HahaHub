@@ -4,8 +4,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>registeration</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <style>
       .mark::after {
         content: "";
@@ -37,12 +45,12 @@
           <li class="mark relative"><a href="content.html">Content</a></li>
         </ul>
         <button class="bg-orange-600 px-4 py-2 active:scale-95 rounded-3xl">
-          <a href="registeration.html">Register</a>
+          <a href="register.html">Register</a>
         </button>
       </nav>
     </header>
     <main class="min-h-screen flex items-center justify-center">
-      <form class="border border-black p-5 rounded my-10">
+      <form class="border border-black p-10 rounded">
         <h1 class="text-center font-bold text-2xl mb-10">User Registration</h1>
         <div class="flex flex-col gap-2 md:flex-row md:gap-10">
           <div class="flex flex-col gap-5">
@@ -74,17 +82,18 @@
                   id="password"
                   class="outline-none"
                   placeholder="Enter your Password"
+                  onclick="checkpass()"
                 />
                 <i
                   class="fa-solid fa-eye select-none cursor-pointer"
                   id="eye"
                 ></i>
               </div>
-              <ul class="list-disc list-inside">
-                <li>lorem lorem</li>
-                <li>lorem lorem</li>
-                <li>lorem lorem</li>
-                <li>lorem lorem</li>
+              <ul class="text-sm text-gray-600 helper-text">
+                <li class="mb-1" id="length">Must be at least 8 characters long.</li>
+                <li class="mb-1" id="lowercase">Must contain a lowercase letter.</li>
+                <li class="mb-1" id="uppercase">Must contain an uppercase letter.</li>
+                <li class="mb-1" id="special">Must contain a number or special character.</li>
               </ul>
             </div>
           </div>
@@ -104,6 +113,7 @@
                 placeholder="Enter "
                 id="photo"
                 class="hidden"
+                onclick="chekpass"
               />
             </div>
             <div class="flex flex-col items-start gap-3">
@@ -159,8 +169,43 @@
           eye.classList.remove("fa-eye-slash");
         }
       });
+      let password = document.getElementById('password');
+    let lengths = document.getElementById('length');
+    let lowercase = document.getElementById('lowercase');
+    let uppercase = document.getElementById('uppercase');
+    let special = document.getElementById('special');
+
+    let lowercaseregex = /^(?=.*[a-z]).+$/;
+    let Uppercaseregex = /^(?=.*[A-Z]).+$/; // Uppercase character pattern
+    let Specialregex = /^(?=.*[0-9_\W]).+$/;
+
+    let patterncheck = () => {
+      if (password.value.length > 8) {
+        lengths.style.color = "green";
+      } else {
+        lengths.style.color = "red";
+      }
+
+      if (lowercaseregex.test(password.value)) {
+        lowercase.style.color = "green";
+      } else {
+        lowercase.style.color = "red";
+      }
+
+      if (Uppercaseregex.test(password.value)) {
+        uppercase.style.color = "green";
+      } else {
+        uppercase.style.color = "red";
+      }
+
+      if (Specialregex.test(password.value)) {
+        special.style.color = "green";
+      } else {
+        special.style.color = "red";
+      }
+    };
+
+    password.addEventListener('keyup', patterncheck);
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
   </body>
 </html>
