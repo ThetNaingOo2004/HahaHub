@@ -5,15 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    /> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+    <script src=""></script>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
       .mark::after {
         content: "";
@@ -50,7 +44,7 @@
       </nav>
     </header>
     <main class="min-h-screen flex items-center justify-center">
-      <form class="border border-black p-10 rounded">
+      <form class="border border-black p-10 rounded" id="registrationForm">
         <h1 class="text-center font-bold text-2xl mb-10">User Registration</h1>
         <div class="flex flex-col gap-2 md:flex-row md:gap-10">
           <div class="flex flex-col gap-5">
@@ -58,7 +52,7 @@
               <label for="name" class="font-bold">Name</label>
               <input
                 type="text"
-                id="name"
+                id="name" name="name"
                 placeholder="Enter your name"
                 class="bg-white px-4 py-1 rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-[243px] outline-none"
               />
@@ -67,7 +61,7 @@
               <label for="email" class="font-bold">Email</label>
               <input
                 type="text"
-                id="email"
+                id="email" name="email"
                 placeholder="Enter your email"
                 class="bg-white px-4 py-1 rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-[243px] outline-none"
               />
@@ -79,10 +73,9 @@
               >
                 <input
                   type="password"
-                  id="password"
+                  id="password" name="password"
                   class="outline-none"
                   placeholder="Enter your Password"
-                  onclick="checkpass()"
                 />
                 <i
                   class="fa-solid fa-eye select-none cursor-pointer"
@@ -113,7 +106,7 @@
                 placeholder="Enter "
                 id="photo"
                 class="hidden"
-                onclick="chekpass"
+                name="photo"
               />
             </div>
             <div class="flex flex-col items-start gap-3">
@@ -129,7 +122,7 @@
               <input
                 type="file"
                 placeholder="Enter "
-                id="resume"
+                id="resume" name="resume"
                 class="hidden"
               />
             </div>
@@ -138,14 +131,17 @@
                 >Personal Description</label
               >
               <textarea
-                name=""
+                name="description"
                 class="bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] outline-none w-[243px] p-3"
-                id="description"
+                id="description" name="description"
                 rows="6"
               ></textarea>
             </div>
           </div>
         </div>
+        <button class="bg-black w-full mt-8 py-2 text-white rounded-md">
+          Register
+        </button>
       </form>
     </main>
     <footer class="bg-gray-300 py-1">
@@ -155,6 +151,7 @@
     </footer>
 
     <script>
+      // Password logo
       const psw = document.getElementById("password");
       const eye = document.getElementById("eye");
 
@@ -169,6 +166,8 @@
           eye.classList.remove("fa-eye-slash");
         }
       });
+
+      // Password validation
       let password = document.getElementById('password');
     let lengths = document.getElementById('length');
     let lowercase = document.getElementById('lowercase');
@@ -204,8 +203,11 @@
         special.style.color = "red";
       }
     };
-
     password.addEventListener('keyup', patterncheck);
+
+    // Photo & Resume names 
+    
     </script>
+    <script src="./registeration.js"></script>
   </body>
 </html>
